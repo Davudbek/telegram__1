@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:telegram__1/profil.dart';
 import 'package:telegram__1/hamburger_icon.dart/Otelegrame.dart';
 import 'package:telegram__1/wigets/draw_profil.dart';
 
 class MyTelgram extends StatelessWidget {
-  MyTelgram({super.key});
+  MyTelgram( {super.key});
 
   final List<String> atar = [
     'Davudbek',
@@ -54,12 +53,14 @@ class MyTelgram extends StatelessWidget {
     '11октябр',
     'в сити'
   ];
-
+  final oneOcntroller = TextEditingController();
+  final twoOcntroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 106, 143, 174),
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color(0xff558ec0),
         title: const Text(
           'Telegram',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
@@ -73,77 +74,79 @@ class MyTelgram extends StatelessWidget {
         ],
       ),
       drawer: Drawer(
-        
-          shadowColor: Colors.white,
-          backgroundColor: Colors.white,
+          
           child: ListView(
-            children: [
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                
-                    color: Color.fromARGB(255, 98, 146, 185)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 65,
-                        width: 65,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color.fromARGB(255, 64, 97, 137),
-                        ),
-                      ),
+        children: [
+          DrawerHeader(
+            decoration:
+                const BoxDecoration(color: Color.fromARGB(255, 98, 146, 185)),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 65,
+                    width: 65,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Color.fromARGB(255, 64, 97, 137),
                     ),
-                    const Text('Davudbek',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.w900)),
-                    const Text('+996701657165',
-                        style: TextStyle(
-                            color: Colors.white70,
-                            fontSize: 17,
-                            fontWeight: FontWeight.w400)),
-                  ],
+                  ),
                 ),
-              ),
-              Draw_menus(
-                onTap: () {},
-                text: 'мой профил',
-                gg: Icons.home,
-              ),
-              const Divider(
-                color: Color.fromARGB(96, 189, 186, 186),
-                endIndent: 7,
-                height: 0.1,
-                indent: 8,
-              ),
-              Draw_menus(
-                onTap: () {},
-                text: 'Кантакты',
-                gg: Icons.home,
-              ),
-              Draw_menus(
-                onTap: () {},
-                text: 'Званки',
-                gg: Icons.home,
-              ),
-              const Divider(
-                color: Color.fromARGB(96, 189, 186, 186),
-                endIndent: 7,
-                height: 1.6,
-                indent: 80,
-              ),
-              Draw_menus(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => O_telegrame()));
-                },
-                text: 'О телеграме',
-                gg: Icons.home,
-              ),
-            ],
-          )),
+                const Text('Davudbek',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.w900)),
+                const Text('+996701657165',
+                    style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400)),
+              ],
+            ),
+          ),
+          Draw_menus(
+            onTap: () {},
+            text: 'мой профил',
+            gg: Icons.home,
+          ),
+          const Divider(
+            color: Color.fromARGB(96, 189, 186, 186),
+            endIndent: 7,
+            height: 0.1,
+            indent: 8,
+          ),
+          Draw_menus(
+            onTap: () {},
+            text: 'Кантакты',
+            gg: Icons.people_alt,
+          ),
+          Draw_menus(
+            onTap: () {},
+            text: 'Званки',
+            gg: Icons.phone_callback,
+          ),
+          Draw_menus(
+            onTap: () {},
+            text: 'Настрой',
+            gg: Icons.settings,
+          ),
+          const Divider(
+            color: Color.fromARGB(96, 189, 186, 186),
+            endIndent: 7,
+            height: 3,
+            indent: 7,
+          ),
+          Draw_menus(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const O_telegrame()));
+            },
+            text: 'О телеграме',
+            gg: Icons.telegram,
+          ),
+        ],
+      )),
       body: SizedBox(
         height: 760,
         width: double.infinity,
@@ -152,8 +155,8 @@ class MyTelgram extends StatelessWidget {
           itemBuilder: (context, index) {
             return InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Ekran()));
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) =>  const ChatScreen()));
               },
               child: Column(
                 children: [
